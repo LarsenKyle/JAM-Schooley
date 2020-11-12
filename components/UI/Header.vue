@@ -2,14 +2,18 @@
   <header class="header">
     <div class="content">
       <h1 class="title">Schooley and Sons</h1>
-      <img src="../../assets/cart-icon.svg" alt="House SVG navigates to home">
+      <img @click="log" src="../../assets/cart-icon.svg" alt="Shopping cart icon">
     </div>
   </header>
 </template>
 
 <script>
 export default {
-
+methods:{
+  log(){
+    console.log('click')
+  }
+}
 }
 </script>
 

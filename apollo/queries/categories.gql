@@ -1,0 +1,15 @@
+query Categories {
+  categories {
+    id
+    catOrder
+    slug
+    name
+    items {
+      title
+      description
+    }
+    image {
+      url
+    }
+  }
+}

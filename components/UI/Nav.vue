@@ -10,13 +10,13 @@
      <div class="navi shop">
         <nuxt-link to="/shop">
           <img src="../../assets/shop-icon.svg" alt="House SVG navigates to home">
-          </nuxt-link>
+        </nuxt-link>
          <nuxt-link to="/shop">Shop</nuxt-link>
      </div>
      <div class="navi about">
        <nuxt-link to="/about">
           <img src="../../assets/about-icon.svg" alt="House SVG navigates to home">
-          </nuxt-link>
+        </nuxt-link>
         <nuxt-link to="/about">About</nuxt-link>
      </div>
     </nav>

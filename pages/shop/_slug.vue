@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header/>
-    <ShopMain />
+    <ItemShop />
     <Nav />
   </div>
 </template>
@@ -13,8 +13,5 @@ export default {
 </script>
 
 <style>
-a{
-  text-decoration: none;
-  cursor: pointer;
-}
+
 </style>
