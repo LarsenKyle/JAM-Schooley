@@ -1,24 +1,21 @@
 <template>
-<div  class="container">
+<div v-if="item.title" class="container">
   <div class="card">
     <h3>{{item.title}}</h3>
-      <img :src="strapiBaseUri + item.image" alt="">
+      <img @click="clear" :src="strapiBaseUri + item.image" alt="">
       <p>{{item.desc}}</p>
       <div v-if="item.size" class="select-form">
-        <p>Select Size</p>
-        <select @change="getPrice" v-if="item.size" placeholder="Select Size" v-model="selected">
-          <option :key="size" v-for="size in item.size" >{{size}}</option>
-       </select>
+        <v-select @change="getPrice" v-model="selected" v-if="item.size" :items="item.size" label="Select Size"></v-select>
       </div>
       <p v-if="item.size" >Price: {{price}}</p>
       <p v-if="!item.size">Price: ${{item.price}}</p>
       <div class="flex">
         <div class="form__group field">
-          <input type="number" class="form__field" placeholder="Name" name="name" id='name' required />
+          <input type="number" class="form__field" v-model="qty" />
           <label for="name" class="form__label">Qty</label>
         </div>
       </div>
-      <Btn :text="'Add to Cart'" />
+      <Btn @click="addTooCart(item.title,item.price)" :text="'Add to Cart'" />
   </div>
 </div>
 </template>
@@ -35,6 +32,9 @@ data:()=>({
 }),
 
 methods:{
+  clear(){
+    localStorage.clear()
+  },
   getPrice(){
     this.items.forEach(thing => {
      thing.forEach(weird =>{
@@ -44,8 +44,69 @@ methods:{
      })
     })
   
+  },
+  checkCart(cartItems,title){
+    const upItems = cartItems.map(item => {
+       if(item.title === title){
+        return {
+          title: item.title,
+          qty: parseInt(item.qty) + parseInt(this.qty), 
+          price: item.price
+         }
+       }else{
+         return{
+           title: item.title,
+           qty: item.qty,
+           price: item.price
+         }
+       }
+    })
+    //end map
+    if(JSON.stringify(cartItems)===JSON.stringify(upItems)){
+      return false
+    }else{
+      return upItems
+    }
+  },
+  addTooCart(title,price){
+    
+  //Check local storage to see if items are in cart
+    let cartItems = JSON.parse(localStorage.getItem('cart'))
+  //If local storage is empty intialize an empty cart
+    if(!cartItems){
+      cartItems = []
+    }
+    
+    let cartItem = {}
+    if(this.selected !== ''){
+ 
+     const checkCart = this.checkCart(cartItems,this.selected)
+      if(checkCart === false){
+      cartItem.title = this.selected
+      cartItem.qty = parseInt(this.qty)
+      cartItem.price = this.price
+     }else{
+      cartItems = checkCart
+    }
+     
+    }else{
+      const checkCart = this.checkCart(cartItems,title)
+      if(checkCart === false){
+      cartItem.title = title
+      cartItem.qty = parseInt(this.qty)
+      cartItem.price = price
+    }else{
+      cartItems = checkCart
+    }
+    }
+    
+    if(cartItem.title){
+      cartItems.push(cartItem)
+    }
+    
+    localStorage.setItem('cart',JSON.stringify(cartItems))
   }
-}
+  }
 }
 </script>
 
@@ -53,13 +114,13 @@ methods:{
 
 .container{
   color: #70865e;
-  text-align: center;
-  margin: auto;
   margin-bottom: 120px;
+  padding: 0;
   h3{
+    text-align: center;
     font-weight: 400;
     margin: 1rem;
-    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    font-size: clamp(1.5rem, 2vw, 4rem);
   }
   .flex{
     display: flex;

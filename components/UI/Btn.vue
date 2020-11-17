@@ -1,11 +1,15 @@
 <template>
-  <button  class="btn">{{text}}</button>
+  <button @click="handleClick"  class="btn">{{text}}</button>
 </template>
 
 <script>
 export default {
 props:['text'],
-
+methods:{
+  handleClick(){
+    this.$emit('click')
+  }
+}
 }
 
 </script>

@@ -1,8 +1,16 @@
 <template>
-  <div class="container">
+ <div class="layout">
     <Header/>
-    <Cta/>
-    <Nav />
+     <main class="content">
+      <img src="../assets/main.png" alt="Image of a snowey cabin">
+      <h2>Ice Fishing with Arctic Blue</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed sint aperiam unde blanditiis dolorem.</p>
+      <img src="../assets/arctic.png" alt="Image of arctic blue ice fishing rod">
+      <nuxt-link to="/shop/arcticblue"> 
+        <Btn :text="'Shop'"/>
+      </nuxt-link>
+   </main>
+  <Nav />
   </div>
 </template>
 
@@ -10,12 +18,22 @@
 export default {}
 </script>
 
-<style>
-body,*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  line-height: 1.5;
-  background-color: #F2F2F2;
+<style scoped lang="scss">
+@import '../assets/vari.scss';
+.content{
+    width: 95vw;
+    margin: 0 auto;
+    text-align: center;
+    color: $primary;
+    margin-bottom: 120px;
+    a{
+        text-decoration: none;
+    }
+    img{
+        margin-top: 2.5vh;
+    }
+}
+.layout{
+  display: block;
 }
 </style>

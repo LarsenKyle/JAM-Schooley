@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <v-app>
     <Nuxt />
-  </div>
+  </v-app>
+ 
 </template>
 
 <style>
@@ -26,5 +27,8 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+  line-height: 1.5;
+  background-color: #F2F2F2;
 }
+
 </style>

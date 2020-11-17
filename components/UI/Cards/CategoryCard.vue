@@ -26,15 +26,26 @@ export default {
 .categoryCard{
   margin: auto;
   text-align: center;
+  margin-top: 2rem;
   h3{
     font-weight: 400;
     color: $primary
   }
   img{
-    width: 50vw;
+    width: 30vw;
   }
   .w{
-    width: 50vw;
+    width: 30vw;
   }
 }
+@media (max-width: 1240px) { 
+  .categoryCard{
+    img{
+      width:40vw;
+    }
+    .w{
+      width:40vw;
+    }
+  }
+ }
 </style>

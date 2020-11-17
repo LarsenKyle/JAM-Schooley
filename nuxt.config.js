@@ -44,6 +44,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/vuetify',
     //Nuxt appolo 
     '@nuxtjs/apollo'
   ],

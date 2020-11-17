@@ -34,7 +34,7 @@ export default {
       }
     };
   },
-  mounted: function() {
+  mounted() {
     const script = document.createElement("script");
     script.src =
       "https://www.paypal.com/sdk/js?client-id=ARNRNvgJTH0oaRUrQUC-p-MgCXzIOl5T6um6YqdW7U9mkwzV-ZkfCtp9c0QH6dRWArJY85Yh3rLCT5Vu";
