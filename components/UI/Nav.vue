@@ -41,6 +41,7 @@ footer{
     display: flex;
     bottom: 0vh;
     justify-content: space-around;
+    background-color: #f2f2f2;
     font-size: 1.3rem;
     z-index: 1;
     .navi{

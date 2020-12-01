@@ -6,16 +6,19 @@
       <p>{{item.desc}}</p>
       <div v-if="item.size" class="select-form">
         <v-select @change="getPrice" v-model="selected" v-if="item.size" :items="item.size" label="Select Size"></v-select>
-      </div>
-      <p v-if="item.size" >Price: {{price}}</p>
-      <p v-if="!item.size">Price: ${{item.price}}</p>
+     
+        <p v-if="item.size" >Price: ${{price}}</p>
+        <p v-if="!item.size">Price: ${{item.price}}</p>
+       </div>
       <div class="flex">
         <div class="form__group field">
           <input type="number" class="form__field" v-model="qty" />
           <label for="name" class="form__label">Qty</label>
         </div>
       </div>
-      <Btn @click="addTooCart(item.title,item.price)" :text="'Add to Cart'" />
+      <Btn  @click="addTooCart(item.title,item.price); snackbar=true" :text="'Add to Cart'" />
+
+     <transition name="fade"> <div v-if="snackbar" class="snackbar"><p>{{text}}</p></div></transition>
   </div>
 </div>
 </template>
@@ -28,7 +31,10 @@ data:()=>({
     strapiBaseUri: process.env.strapiBaseUri,
     selected: '',
     price: 'Select Size',
-    qty: 1
+    qty: 1,
+    text:null,
+    snackbar:false,
+    timeout: 1000
 }),
 
 methods:{
@@ -36,8 +42,8 @@ methods:{
     localStorage.clear()
   },
   getPrice(){
-    this.items.forEach(thing => {
-     thing.forEach(weird =>{
+    this.items.forEach(item => {
+      item.forEach(weird =>{
        if(weird.title === this.selected){
          this.price = weird.price
        }
@@ -68,42 +74,53 @@ methods:{
       return upItems
     }
   },
+  snackbarHandler(text,color){
+    this.text = text
+    //Make the color changeables
+    setTimeout(()=> {this.snackbar = false},2000)
+  },
   addTooCart(title,price){
-    
+    this.snackbarHandler('Item Added to Cart', 'inherit')
   //Check local storage to see if items are in cart
     let cartItems = JSON.parse(localStorage.getItem('cart'))
   //If local storage is empty intialize an empty cart
     if(!cartItems){
       cartItems = []
     }
-    
+    //Initialize new item to add to cart
     let cartItem = {}
+    //Check to see if the item has multiple sizes
     if(this.selected !== ''){
- 
+      //Check to see if the item is already in the cart
      const checkCart = this.checkCart(cartItems,this.selected)
       if(checkCart === false){
+      //Build the new item for the cart if the item is new
       cartItem.title = this.selected
       cartItem.qty = parseInt(this.qty)
       cartItem.price = this.price
      }else{
+       //Replace the cart with the updated qty if the item is in the cart
       cartItems = checkCart
     }
-     
+     //Item has one size
     }else{
+       //Check to see if the item is already in the cart
       const checkCart = this.checkCart(cartItems,title)
       if(checkCart === false){
+      //Build the new item for the cart if the item is new
       cartItem.title = title
       cartItem.qty = parseInt(this.qty)
       cartItem.price = price
     }else{
+      //Replace the cart with the updated qty if the item is in the cart
       cartItems = checkCart
     }
     }
-    
+    //If the item was not already in the cart, add it
     if(cartItem.title){
       cartItems.push(cartItem)
     }
-    
+    //Replace the cart with the updated version
     localStorage.setItem('cart',JSON.stringify(cartItems))
   }
   }
@@ -111,7 +128,33 @@ methods:{
 </script>
 
 <style scoped lang="scss">
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.snackbar{
+  position: fixed;
+  top: 20vh;
+  background-color: #70865e;
+  color: white;
+  width: 100%;
+  max-width: 500px;
+  height:85px;
+  margin: auto;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 0.5s ease-out;
+  p{
+    background-color: inherit;
+    justify-items: center;
+    align-items: center;
+    font-size: clamp(1.3rem, 2vw,4rem);
+  }
+}
 .container{
   color: #70865e;
   margin-bottom: 120px;
@@ -135,10 +178,12 @@ methods:{
     margin: 1rem;
   }
   .select-form{
+    width: 300px;
+    margin: auto;
   p{
     margin: 0;
     padding: 0;
-    text-decoration: underline;
+    text-align: center;
   }
 }
 }

@@ -35,11 +35,19 @@ export default {
     };
   },
   mounted() {
-    const script = document.createElement("script");
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=ARNRNvgJTH0oaRUrQUC-p-MgCXzIOl5T6um6YqdW7U9mkwzV-ZkfCtp9c0QH6dRWArJY85Yh3rLCT5Vu";
-    script.addEventListener("load", this.setLoaded);
-    document.body.appendChild(script);
+    console.log('mounted')
+    if(process.browser){
+        let price = null
+        let cartItems = JSON.parse(localStorage.getItem('cart'))
+        price =  cartItems.reduce((a, b) => a.price + b.price, 0)
+        console.log(price)
+    //     const script = document.createElement("script");
+    // script.src =
+    //   "https://www.paypal.com/sdk/js?client-id=ARNRNvgJTH0oaRUrQUC-p-MgCXzIOl5T6um6YqdW7U9mkwzV-ZkfCtp9c0QH6dRWArJY85Yh3rLCT5Vu";
+    // script.addEventListener("load", this.setLoaded);
+    // document.body.appendChild(script);
+    }
+    
   },
   methods: {
     setLoaded: function() {

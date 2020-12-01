@@ -6,7 +6,11 @@
 </template>
 
 <style>
+.v-application--wrap{
+  background-color: #f2f2f2;
+} 
 html {
+  line-height: 1.5;
   font-family:
     'Segoe UI',
     Roboto,
@@ -27,8 +31,7 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-  line-height: 1.5;
-  background-color: #F2F2F2;
+  
 }
 
 </style>

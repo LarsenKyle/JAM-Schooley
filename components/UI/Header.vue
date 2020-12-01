@@ -4,11 +4,61 @@
       <nuxt-link to="/">
         <h1 class="title">Schooley and Sons</h1>
       </nuxt-link>
-      <img @click="toggleModalHandler" src="../../assets/cart-icon.svg" alt="Shopping cart icon">
-      <div @click="toggleModalHandler" v-if="modal" class="modal">
-        <p v-for="item in items" :key="item.title">{{item.title}}</p>
-      </div>
+      <img @click="dialog = true" src="../../assets/cart-icon.svg" alt="Shopping cart icon and link">
     </div>
+  
+     <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline">
+          My Cart
+        </v-card-title>
+        <v-card-text >
+          <v-simple-table>
+            <template v-slot:default>
+              <thead>
+                <tr>
+                  <th class="text-left">
+                    Item
+                  </th>
+                  <th class="text-left">
+                    Qty
+                  </th>
+                  <th class="text-left">
+                    Price
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="item in items"
+                  :key="item.title"
+                >
+                  <td>{{ item.title }}</td>
+                  <td>{{ item.qty }}</td>
+                  <td>${{ item.price }}</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </v-card-text>  
+        
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Proceed to checkout
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    
   </header>
 </template>
 
@@ -17,14 +67,9 @@ export default {
 data: () =>({
 items:[],
 token:false,
-modal:false
+dialog:false,
+
 }),
-methods:{
-  toggleModalHandler(){
-    console.log(this.modal)
-    this.modal = !this.modal
-  }
-},
 mounted(){
   if(process.browser){
    let cartItems = JSON.parse(localStorage.getItem('cart'))
@@ -37,14 +82,6 @@ mounted(){
 
 <style  lang="scss" scoped >
 @import '../../assets/vari.scss';
-.modal{
-  height: 45vh;
-  width: 100vw;
-  position: fixed;
-  background-color: #fff;
-  top: 10px;
-  
-}
 .header{
   background-color: $primary;
   width: 100vw;
