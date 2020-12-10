@@ -1,191 +1,211 @@
 <template>
-<div v-if="item.title" class="container">
-  <div class="card">
-    <h3>{{item.title}}</h3>
-      <img @click="clear" :src="strapiBaseUri + item.image" alt="">
-      <p>{{item.desc}}</p>
+  <div v-if="item.title" class="container">
+    <div class="card">
+      <h3>{{ item.title }}</h3>
+      <img :src="strapiBaseUri + item.image" alt="" />
+      <p>{{ item.desc }}</p>
       <div v-if="item.size" class="select-form">
-        <v-select @change="getPrice" v-model="selected" v-if="item.size" :items="item.size" label="Select Size"></v-select>
-     
-        <p v-if="item.size" >Price: ${{price}}</p>
-        <p v-if="!item.size">Price: ${{item.price}}</p>
-       </div>
+        <v-select
+          @change="getPrice"
+          v-model="selected"
+          v-if="item.size"
+          :items="item.size"
+          label="Select Size"
+        ></v-select>
+        <p v-if="item.size">Price: ${{ price }}</p>
+        <p v-if="!item.size">Price: ${{ item.price }}</p>
+      </div>
       <div class="flex">
         <div class="form__group field">
           <input type="number" class="form__field" v-model="qty" />
           <label for="name" class="form__label">Qty</label>
         </div>
       </div>
-      <Btn  @click="addTooCart(item.title,item.price); snackbar=true" :text="'Add to Cart'" />
+      <Btn
+        @click="
+          addTooCart(item.title, item.price);
+          snackbar = true;
+        "
+        :text="'Add to Cart'"
+      />
 
-     <transition name="fade"> <div v-if="snackbar" class="snackbar"><p>{{text}}</p></div></transition>
+      <v-snackbar v-model="snackbar" :timeout="timeout" :color="color">
+        {{ text }}
+
+        <template v-slot:action="{ attrs }">
+          <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 export default {
-props:['item','items'],
+  props: ["item", "items"],
 
-data:()=>({
+  data: () => ({
     strapiBaseUri: process.env.strapiBaseUri,
-    selected: '',
-    price: 'Select Size',
+    selected: "",
+    price: "Select Size",
     qty: 1,
-    text:null,
-    snackbar:false,
-    timeout: 1000
-}),
+    color: "green",
+    text: null,
+    snackbar: false,
+    timeout: 2000
+  }),
 
-methods:{
-  clear(){
-    localStorage.clear()
-  },
-  getPrice(){
-    this.items.forEach(item => {
-      item.forEach(weird =>{
-       if(weird.title === this.selected){
-         this.price = weird.price
-       }
-     })
-    })
-  
-  },
-  checkCart(cartItems,title){
-    const upItems = cartItems.map(item => {
-       if(item.title === title){
-        return {
-          title: item.title,
-          qty: parseInt(item.qty) + parseInt(this.qty), 
-          price: item.price
-         }
-       }else{
-         return{
-           title: item.title,
-           qty: item.qty,
-           price: item.price
-         }
-       }
-    })
-    //end map
-    if(JSON.stringify(cartItems)===JSON.stringify(upItems)){
-      return false
-    }else{
-      return upItems
+  methods: {
+    getPrice() {
+      this.items.forEach(item => {
+        item.forEach(weird => {
+          if (weird.title === this.selected) {
+            this.price = weird.price;
+          }
+        });
+      });
+    },
+    checkCart(cartItems, title) {
+      const upItems = cartItems.map(item => {
+        if (item.title === title) {
+          return {
+            title: item.title,
+            qty: parseInt(item.qty) + parseInt(this.qty),
+            price: item.price
+          };
+        } else {
+          return {
+            title: item.title,
+            qty: item.qty,
+            price: item.price
+          };
+        }
+      });
+      //end map
+      if (JSON.stringify(cartItems) === JSON.stringify(upItems)) {
+        return false;
+      } else {
+        return upItems;
+      }
+    },
+
+    addTooCart(title, price) {
+      if (this.item.size && this.selected === "") {
+        this.snackbar = true;
+        this.text = "Please Select a Size";
+        this.color = "red";
+      } else {
+        //Check local storage to see if items are in cart
+        let cartItems = JSON.parse(localStorage.getItem("cart"));
+        //If local storage is empty intialize an empty cart
+        if (!cartItems) {
+          cartItems = [];
+        }
+        //Initialize new item to add to cart
+        let cartItem = {};
+        //Check to see if the item has multiple sizes
+        if (this.selected !== "") {
+          //Check to see if the item is already in the cart
+          const checkCart = this.checkCart(cartItems, this.selected);
+          if (checkCart === false) {
+            //Build the new item for the cart if the item is new
+            cartItem.title = this.selected;
+            cartItem.qty = parseInt(this.qty);
+            cartItem.price = parseFloat(this.price.toFixed(2));
+          } else {
+            //Replace the cart with the updated qty if the item is in the cart
+            cartItems = checkCart;
+          }
+          //Item has one size
+        } else {
+          //Check to see if the item is already in the cart
+          const checkCart = this.checkCart(cartItems, title);
+          if (checkCart === false) {
+            //Build the new item for the cart if the item is new
+            cartItem.title = title;
+            cartItem.qty = parseInt(this.qty);
+            cartItem.price = price;
+          } else {
+            //Replace the cart with the updated qty if the item is in the cart
+            cartItems = checkCart;
+          }
+        }
+        //If the item was not already in the cart, add it
+        if (cartItem.title) {
+          cartItems.push(cartItem);
+        }
+        //Replace the cart with the updated version
+        this.$store.commit("addItem", cartItems);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        this.text = "Items Added to Cart";
+        this.color = "green";
+      }
     }
-  },
-  snackbarHandler(text,color){
-    this.text = text
-    //Make the color changeables
-    setTimeout(()=> {this.snackbar = false},2000)
-  },
-  addTooCart(title,price){
-    this.snackbarHandler('Item Added to Cart', 'inherit')
-  //Check local storage to see if items are in cart
-    let cartItems = JSON.parse(localStorage.getItem('cart'))
-  //If local storage is empty intialize an empty cart
-    if(!cartItems){
-      cartItems = []
-    }
-    //Initialize new item to add to cart
-    let cartItem = {}
-    //Check to see if the item has multiple sizes
-    if(this.selected !== ''){
-      //Check to see if the item is already in the cart
-     const checkCart = this.checkCart(cartItems,this.selected)
-      if(checkCart === false){
-      //Build the new item for the cart if the item is new
-      cartItem.title = this.selected
-      cartItem.qty = parseInt(this.qty)
-      cartItem.price = this.price
-     }else{
-       //Replace the cart with the updated qty if the item is in the cart
-      cartItems = checkCart
-    }
-     //Item has one size
-    }else{
-       //Check to see if the item is already in the cart
-      const checkCart = this.checkCart(cartItems,title)
-      if(checkCart === false){
-      //Build the new item for the cart if the item is new
-      cartItem.title = title
-      cartItem.qty = parseInt(this.qty)
-      cartItem.price = price
-    }else{
-      //Replace the cart with the updated qty if the item is in the cart
-      cartItems = checkCart
-    }
-    }
-    //If the item was not already in the cart, add it
-    if(cartItem.title){
-      cartItems.push(cartItem)
-    }
-    //Replace the cart with the updated version
-    localStorage.setItem('cart',JSON.stringify(cartItems))
   }
-  }
-}
+};
 </script>
 
 <style scoped lang="scss">
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
-.snackbar{
+.snackbar {
   position: fixed;
   top: 20vh;
   background-color: #70865e;
   color: white;
   width: 100%;
   max-width: 500px;
-  height:85px;
+  height: 85px;
   margin: auto;
   display: grid;
   justify-items: center;
   align-items: center;
   border-radius: 10px;
   transition: all 0.5s ease-out;
-  p{
+  p {
     background-color: inherit;
     justify-items: center;
     align-items: center;
-    font-size: clamp(1.3rem, 2vw,4rem);
+    font-size: clamp(1.3rem, 2vw, 4rem);
   }
 }
-.container{
+.container {
   color: #70865e;
   margin-bottom: 120px;
   padding: 0;
-  h3{
+  h3 {
     text-align: center;
     font-weight: 400;
     margin: 1rem;
     font-size: clamp(1.5rem, 2vw, 4rem);
   }
-  .flex{
+  .flex {
     display: flex;
     justify-content: center;
     align-content: center;
-   
   }
-  img{
+  img {
     width: 100%;
   }
-  p{
+  p {
     margin: 1rem;
   }
-  .select-form{
+  .select-form {
     width: 300px;
     margin: auto;
-  p{
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    p {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
   }
-}
 }
 //Qty input styles
 $primary: #70865e;
@@ -239,27 +259,30 @@ $gray: #70865e;
     transition: 0.2s;
     font-size: 1rem;
     color: $primary;
-    font-weight:700;    
+    font-weight: 700;
   }
-  padding-bottom: 6px;  
+  padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image: linear-gradient(to right, $primary, $secondary);
   border-image-slice: 1;
 }
 /* reset input */
-.form__field{
-  &:required,&:invalid { box-shadow:none; }
+.form__field {
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
 }
 /* demo */
 body {
-  font-family: 'Poppins', sans-serif; 
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   font-size: 1.5rem;
-  background-color:#222222;
+  background-color: #222222;
 }
 </style>

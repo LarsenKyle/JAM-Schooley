@@ -21,11 +21,10 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 # to do next
 
-Modal persistant
+No modal checkout just page?
 Google analytics
-Make an indication for when items are in cart
 Make desktop layout look nice
-Use snackbar from vuetify
+Checkout Page
 Build out HTML headers
 Write Orders to database
 Install vuex for shoping cart
