@@ -21,10 +21,9 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 # to do next
 
-No modal checkout just page?
+Modal alert for cart?
 Google analytics
-Make desktop layout look nice
-Checkout Page
+Home desktop layout/mobile
+desktop Nav
+Checkout order approved flow, go home?
 Build out HTML headers
-Write Orders to database
-Install vuex for shoping cart

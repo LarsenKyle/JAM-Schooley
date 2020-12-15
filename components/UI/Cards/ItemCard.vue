@@ -2,8 +2,9 @@
   <div v-if="item.title" class="container">
     <div class="card">
       <h3>{{ item.title }}</h3>
-      <img :src="strapiBaseUri + item.image" alt="" />
-      <p>{{ item.desc }}</p>
+      <img @click="check" :src="strapiBaseUri + item.image" alt="" />
+      <p>{{ item.description }}</p>
+      <p class="price" v-if="!item.size">Price: ${{ item.price }}</p>
       <div v-if="item.size" class="select-form">
         <v-select
           @change="getPrice"
@@ -13,7 +14,7 @@
           label="Select Size"
         ></v-select>
         <p v-if="item.size">Price: ${{ price }}</p>
-        <p v-if="!item.size">Price: ${{ item.price }}</p>
+        
       </div>
       <div class="flex">
         <div class="form__group field">
@@ -28,10 +29,8 @@
         "
         :text="'Add to Cart'"
       />
-
       <v-snackbar v-model="snackbar" :timeout="timeout" :color="color">
         {{ text }}
-
         <template v-slot:action="{ attrs }">
           <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
             Close
@@ -56,8 +55,10 @@ export default {
     snackbar: false,
     timeout: 2000
   }),
-
   methods: {
+    check(){
+      
+    },
     getPrice() {
       this.items.forEach(item => {
         item.forEach(weird => {
@@ -138,6 +139,7 @@ export default {
         }
         //Replace the cart with the updated version
         this.$store.commit("addItem", cartItems);
+        
         localStorage.setItem("cart", JSON.stringify(cartItems));
         this.text = "Items Added to Cart";
         this.color = "green";
@@ -148,6 +150,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.price{
+  text-align: center;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;

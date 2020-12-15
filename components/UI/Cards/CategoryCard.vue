@@ -29,7 +29,8 @@ export default {
   margin-top: 2rem;
   h3{
     font-weight: 400;
-    color: $primary
+    color: $primary;
+    font-size: clamp(1.2rem, 2vw, 4rem);
   }
   img{
     width: 30vw;

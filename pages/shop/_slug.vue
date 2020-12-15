@@ -39,7 +39,7 @@ export default {
             price.push(item.price);
             newItem.id = item.id;
             newItem.title = title;
-            newItem.desc = item.description;
+            newItem.description = item.description;
             newItem.image = item.image.url;
             newItem.size = size;
             newItem.price = price;

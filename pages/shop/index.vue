@@ -36,7 +36,7 @@ a{
 
 .grid{
   display: grid;
-  
+  margin-bottom: 120px;
   grid-template-columns: 1fr 1fr;
 
 }

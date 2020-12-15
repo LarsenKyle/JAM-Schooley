@@ -7,7 +7,10 @@
           My Cart
         </v-card-title>
         <v-card-text>
-          <v-simple-table>
+          <v-card-text>
+            <h1 class="empty">Looks like your cart is empty!</h1>
+          </v-card-text>
+          <v-simple-table v-if="items" >
             <template v-slot:default>
               <thead>
                 <tr>
@@ -53,12 +56,13 @@ export default {
     };
   },
   mounted() {
-    if (process.browser) {
+    console.log(this.$store.state.cartItems)
+    if (process.browser && this.$store.state.cartItems ) {
       let amount = {};
       let breakdown = {};
       let shippingVal = 5.0;
       let arr = [];
-      let cartItems = JSON.parse(localStorage.getItem("cart"));
+      let cartItems = this.$store.state.cartItems
       //Get items from cart and turn them into an array for the paypal function items:
       let purchaseItems = cartItems.map(item => {
         return {
@@ -162,18 +166,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.empty{
+  text-align: center;
 }
 </style>

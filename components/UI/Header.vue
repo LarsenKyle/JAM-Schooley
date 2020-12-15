@@ -26,7 +26,7 @@ export default {
     dialog: false
   }),
   mounted() {
-    if (process.browser) {
+    if (process.browser && !this.$store.state) {
       this.$store.dispatch("getItems");
     }
   }
@@ -46,7 +46,7 @@ export default {
     a {
       background-color: $primary;
       margin-left: 3vw;
-      font-size: clamp(1.5rem, 2vw, 5rem);
+      font-size: clamp(1.5rem, 2vw, 4.5rem) !important;
       text-decoration: none;
     }
     img {
