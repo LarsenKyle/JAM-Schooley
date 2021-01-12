@@ -23,7 +23,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 Modal alert for cart?
 Google analytics
-Home desktop layout/mobile
-desktop Nav
 Checkout order approved flow, go home?
 Build out HTML headers

@@ -12,7 +12,16 @@
 
 <script>
 export default {
-
+head: {
+    title: 'About Us',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Learn more about Schooley and Sons Tackle'
+      }
+    ],
+  }
 }
 </script>
 

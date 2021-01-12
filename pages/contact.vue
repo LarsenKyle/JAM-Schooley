@@ -1,13 +1,9 @@
 <template>
 <v-main>
 <Header/>
-
   <v-container  fluid>
-        <v-row align="center" justify="center">
+        <v-row class="fit" align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
-            <p>Phone: (616)-754-3266</p>
-            <p>Email: schooley@gmail.com</p>
-            <p>Adress: 13700 14 Mile Rd NE, Greenville, MI</p>
             <v-card class="elevation-0">
               <v-toolbar color="white" dark flat>
                 <v-toolbar-title class="t-title">Contact Us</v-toolbar-title>
@@ -49,11 +45,22 @@
         </v-row>
       </v-container>
       <Nav/>
+      <Footer/>
       </v-main>
 </template>
 
 <script>
 export default {
+  head: {
+    title: 'Contact Us',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Get in touch with us'
+      }
+    ],
+  },
 data(){
     return{
         text:'',
@@ -76,5 +83,8 @@ methods:{
 }
 p{
   background-color: white;
+}
+.fit{
+  height:calc(100vh - 100px);
 }
 </style>

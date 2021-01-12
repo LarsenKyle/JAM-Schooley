@@ -185,6 +185,8 @@ export default {
   color: #70865e;
   margin-bottom: 120px;
   padding: 0;
+  max-width: 400px;
+ 
   h3 {
     text-align: center;
     font-weight: 400;

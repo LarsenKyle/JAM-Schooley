@@ -3,18 +3,11 @@
     <Header/>
     <div class="hero-img">
       <img class="hero" src="../assets/mainBg.png" alt="Image of a snowey cabin">
-      <h1 class="hero-heading" >Some Text Goes Here</h1>
+      <img class="hero-mobile" src="../assets/mainMobile.png" alt="Image of a snowey cabin">
+      <h1 class="hero-heading" >Tagline Text Here</h1>
     </div>
-    <v-divider class="divide" ></v-divider>
-     <main class="content pb-3">
-      <h2>Get ready with the Arctic Blue Ice Rod</h2>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed sint aperiam unde blanditiis dolorem.</p>
-      <img src="../assets/arctic.png" alt="Image of arctic blue ice fishing rod">
-      <nuxt-link class="mb-2" to="/shop/arcticblue"> 
-        <Btn :text="'Shop Now'"/>
-      </nuxt-link>
-   </main>
   <Nav />
+  <Footer />
   </div>
 </template>
 
@@ -24,8 +17,14 @@ export default {}
 
 <style scoped lang="scss">
 @import '../assets/vari.scss';
+.hero-mobile{
+  display: none;
+}
 .hero-img{
   position: relative;
+  background-size: cover;
+  margin-bottom: -8px;
+ 
 }
 .divide{
   margin: 4rem 2rem;
@@ -34,13 +33,17 @@ export default {}
   width:100vw;
 }
 .hero-heading{
-   position: absolute;
-    top: 30%;
-    right: 10%;
-    color: #fff;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  color:#fff;
+  padding: 1rem;
 }
 .content{
-    width: 80vw;
+    width: 95vw;
+    border-radius: 5px;
+    padding: 2rem 1.5rem;
+    max-width: 1500px;
     margin: 0 auto;
     text-align: center;
     color: $primary;
@@ -56,5 +59,16 @@ export default {}
 }
 .layout{
   display: block;
+}
+@media only screen and (max-width: 1000px){
+  .hero{
+    display: none;
+  }
+  .hero-mobile{
+    display: initial;
+    width: 100vw;
+    margin-bottom: -8px;
+    
+  }
 }
 </style>

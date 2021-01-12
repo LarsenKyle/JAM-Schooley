@@ -3,9 +3,9 @@
     <nav class="mobile">
      <div class="navi home">
         <nuxt-link to="/">
-         <img src="../../assets/home-icon.svg" alt="House SVG navigates to home">
+         <img src="../../assets/contact-icon.svg" alt="House SVG navigates to home">
          </nuxt-link>
-         <nuxt-link to="/">Home</nuxt-link>
+         <nuxt-link to="/contact">Contact</nuxt-link>
      </div>
      <div class="navi shop">
         <nuxt-link to="/shop">
@@ -55,5 +55,10 @@ footer{
 a{
   text-decoration: none;
   color:$primary;
+}
+@media only screen and (min-width: 1000px){
+  footer{
+    display: none;
+  }
 }
 </style>

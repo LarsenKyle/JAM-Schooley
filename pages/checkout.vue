@@ -1,13 +1,14 @@
 <template>
   <div>
     <Header />
-    <div v-if="!paidFor">
+    <div class="checkout" v-if="!paidFor">
       <v-card>
         <v-card-title class="headline">
           My Cart
         </v-card-title>
+        <v-card-text>Shipping and handling: UPS flat rate $8.00</v-card-text>
         <v-card-text>
-          <v-card-text>
+          <v-card-text v-if="!items">
             <h1 class="empty">Looks like your cart is empty!</h1>
           </v-card-text>
           <v-simple-table v-if="items" >
@@ -29,7 +30,7 @@
                 <tr v-for="item in items" :key="item.name">
                   <td>{{ item.name }}</td>
                   <td>{{ item.quantity }}</td>
-                  <td>${{ item.unit_amount.value }}</td>
+                  <td>${{ item.unit_amount.value.toFixed(2) }}</td>
                 </tr>
               </tbody>
             </template>
@@ -40,7 +41,9 @@
     <div v-if="paidFor">
       <nuxt-link to="/"> <h1>Return to Homepage</h1></nuxt-link>
     </div>
-    <div ref="paypal"></div>
+    <div class="paypal-styles">
+      <div  ref="paypal"></div>
+    </div>
   </div>
 </template>
 
@@ -56,7 +59,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$store.state.cartItems)
     if (process.browser && this.$store.state.cartItems ) {
       let amount = {};
       let breakdown = {};
@@ -168,5 +170,16 @@ export default {
 <style lang="scss" scoped>
 .empty{
   text-align: center;
+}
+.paypal-styles{
+width: 95vw;
+max-width: 750px;
+margin: 0 auto;
+margin-top: 1rem;
+}
+.checkout{
+  margin-top: 5rem;
+  width: 95vw;
+  margin: 0 auto;
 }
 </style>

@@ -5,12 +5,23 @@
     <CategoryCard :key="category.id" v-for="category in categories" :slug="category.slug" :image="category.image.url" :name="category.name" />
   </main>
   <Nav />
+  <Footer/>
 </div>
 </template>
 
 <script>
 import categoriesQuery from '~/apollo/queries/categories';
 export default {
+  head: {
+    title: 'Shop Schooley Ice Tackle',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Shop for the ice fishing equiptment you need'
+      }
+    ],
+  },
     data(){
         return{
             categories:[]
@@ -30,13 +41,14 @@ export default {
 
 <style scoped lang="scss">
 a{
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer;
 }
 
 .grid{
   display: grid;
   margin-bottom: 120px;
+  padding: 1rem;
   grid-template-columns: 1fr 1fr;
 
 }
