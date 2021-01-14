@@ -14,10 +14,10 @@ export default {
 <style scoped lang="scss">
 @import '../../assets/vari.scss';
 .foot{
-    color: white;
+    color: white !important;
     display: flex;
     flex-direction: column;
-    background-color: $primary;
+    background-color: $primary !important;
     height: 110px;
     p{
         margin-bottom: 5px;

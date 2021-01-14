@@ -59,7 +59,7 @@ h1{
 h1,
 a {
       background-color: $primary;
-      color: white;
+      color: #fff !important;
       margin-left: 3vw;
       text-decoration: none;
     }
