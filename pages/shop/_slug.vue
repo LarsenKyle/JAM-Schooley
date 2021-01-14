@@ -1,15 +1,15 @@
 <template>
 <div>
-<Header/>
-  <main class="grid-parent">
-    <ItemCard
-      :key="item.id"
-      v-for="item in sortedItems"
-      :items="allItems"
-      :item="item"
-    />
-  </main>
-<Nav />
+  <Header/>
+    <main class="grid-parent">
+      <ItemCard
+        :key="item.id"
+        v-for="item in sortedItems"
+        :items="allItems"
+        :item="item"
+      />
+    </main>
+  <Nav />
 </div>
 </template>
 

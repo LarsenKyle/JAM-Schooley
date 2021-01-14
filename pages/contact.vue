@@ -85,6 +85,7 @@ p{
   background-color: white;
 }
 .fit{
-  height:calc(100vh - 100px);
+  margin: 3rem 0;
+  height:calc(100vh - 120px);
 }
 </style>

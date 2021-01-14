@@ -1,9 +1,9 @@
 <template> 
 <div>
   <Header/>
-  <main class="grid">
-    <CategoryCard :key="category.id" v-for="category in categories" :slug="category.slug" :image="category.image.url" :name="category.name" />
-  </main>
+    <main class="grid">
+      <CategoryCard :key="category.id" v-for="category in categories" :slug="category.slug" :image="category.image.url" :name="category.name" />
+    </main>
   <Nav />
   <Footer/>
 </div>
@@ -24,7 +24,8 @@ export default {
   },
     data(){
         return{
-            categories:[]
+            categories:[],
+            loading: true
         }
     },
     apollo: {

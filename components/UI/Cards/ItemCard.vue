@@ -14,7 +14,6 @@
           label="Select Size"
         ></v-select>
         <p v-if="item.size">Price: ${{ price }}</p>
-        
       </div>
       <div class="flex">
         <div class="form__group field">
@@ -29,9 +28,14 @@
         "
         :text="'Add to Cart'"
       />
-      <v-snackbar v-model="snackbar" :timeout="timeout" :color="color">
+      <v-snackbar v-model="snackbar"  centered :timeout="timeout" :color="color">
         {{ text }}
         <template v-slot:action="{ attrs }">
+          <nuxt-link to="/checkout">
+            <v-btn v-if="checkout" color="white" text v-bind="attrs" @click="snackbar = false">
+              Proceed to Checkout
+            </v-btn>
+          </nuxt-link>
           <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
             Close
           </v-btn>
@@ -52,6 +56,7 @@ export default {
     qty: 1,
     color: "green",
     text: null,
+    checkout:null,
     snackbar: false,
     timeout: 2000
   }),
@@ -142,6 +147,8 @@ export default {
         
         localStorage.setItem("cart", JSON.stringify(cartItems));
         this.text = "Items Added to Cart";
+        this.timeout = 20000
+        this.checkout = true
         this.color = "green";
       }
     }
@@ -150,6 +157,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+a{
+  text-decoration: none;
+}
 .price{
   text-align: center;
 }

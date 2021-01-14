@@ -1,10 +1,24 @@
 <template>
   <v-app>
-    <Nuxt />
+    <div v-if="loading">
+      <p>Loading ...</p>
+    </div>
+    <Nuxt v-if="!loading" />
   </v-app>
  
 </template>
-
+<script>
+export default {
+  data(){
+    return{
+      loading: true
+    }
+  },
+  mounted(){
+    setTimeout( ()=>{this.loading = false},2000)
+  }
+}
+</script>
 <style>
 .v-application--wrap{
   background-color: #f2f2f2;

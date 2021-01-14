@@ -3,7 +3,6 @@ export const state = () => ({
 });
 export const actions = {
   getItems({commit}){
-    console.log('getemm')
     let cartItems = JSON.parse(localStorage.getItem("cart"));
     commit('addItem',cartItems)
   }
@@ -11,6 +10,5 @@ export const actions = {
 export const mutations = {
   addItem(state, payload) {
     state.cartItems = payload;
-    console.log(payload)
   }
 };

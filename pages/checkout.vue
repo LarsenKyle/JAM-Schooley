@@ -24,6 +24,9 @@
                   <th class="text-left">
                     Price
                   </th>
+                  <th class="text-left">
+                    Remove Item
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -31,6 +34,7 @@
                   <td>{{ item.name }}</td>
                   <td>{{ item.quantity }}</td>
                   <td>${{ item.unit_amount.value.toFixed(2) }}</td>
+                  <td  @click="remove(item.name)"><v-icon>mdi-delete</v-icon></td>
                 </tr>
               </tbody>
             </template>
@@ -42,7 +46,7 @@
       <nuxt-link to="/"> <h1>Return to Homepage</h1></nuxt-link>
     </div>
     <div class="paypal-styles">
-      <div  ref="paypal"></div>
+      <div ref="paypal"></div>
     </div>
   </div>
 </template>
@@ -62,7 +66,7 @@ export default {
     if (process.browser && this.$store.state.cartItems ) {
       let amount = {};
       let breakdown = {};
-      let shippingVal = 5.0;
+      let shippingVal = 8;
       let arr = [];
       let cartItems = this.$store.state.cartItems
       //Get items from cart and turn them into an array for the paypal function items:
@@ -103,7 +107,7 @@ export default {
       };
       let shipping = {
         currency_code: "USD",
-        value: 5
+        value: shippingVal
       };
       //Populate breakdown object then populate amount object
       breakdown.item_total = item_total;
@@ -126,13 +130,21 @@ export default {
     }
   },
   methods: {
+    remove(name){
+    let cartItems = JSON.parse(localStorage.getItem("cart"));
+    
+    cartItems = cartItems.filter(item => {
+     return item.title != name
+    })
+    localStorage.setItem("cart",JSON.stringify(cartItems)) 
+    location.reload()
+      },
     getTax(price) {
       let tax = price * 0.06;
       return parseFloat((Math.round(tax * 100) / 100).toFixed(2));
     },
     //Paypal checkout api function
     setLoaded: function() {
-      console.log(this.amount, this.items);
       this.loaded = true;
       window.paypal
         .Buttons({
@@ -142,8 +154,8 @@ export default {
                 {
                   reference_id: "PUHF",
                   description: "Sporting Goods",
-                  custom_id: "CUST-HighFashions",
-                  soft_descriptor: "HighFashions",
+                  custom_id: "CUST_Schooley Ice Tackle",
+                  soft_descriptor: "Ice fishing tackle",
                   amount: this.amount,
                   items: this.items
                 }
@@ -177,9 +189,10 @@ max-width: 750px;
 margin: 0 auto;
 margin-top: 1rem;
 }
+
 .checkout{
-  margin-top: 5rem;
   width: 95vw;
   margin: 0 auto;
+  margin-top: 8rem;
 }
 </style>
