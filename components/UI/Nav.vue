@@ -54,7 +54,7 @@ footer{
   }
 a{
   text-decoration: none;
-  color:$primary;
+  color:$primary !important;
 }
 @media only screen and (min-width: 1000px){
   footer{
