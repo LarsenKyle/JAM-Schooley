@@ -1,6 +1,6 @@
 <template>
   <div class="categoryCard">
-      <img  :src="strapiBaseUri + image" alt="">
+      <img  :src="image" alt="">
       <h3>{{name}}</h3>
       <nuxt-link :to="`/shop/${slug}`">
         <Btn class="w" :text="'Shop'"/>

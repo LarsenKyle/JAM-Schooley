@@ -2,7 +2,7 @@
   <div v-if="item.title" class="container">
     <div class="card">
       <h3>{{ item.title }}</h3>
-      <img @click="check" :src="strapiBaseUri + item.image" alt="" />
+      <img @click="check" :src="item.image" alt="" />
       <p>{{ item.description }}</p>
       <p class="price" v-if="!item.size">Price: ${{ item.price }}</p>
       <div v-if="item.size" class="select-form">

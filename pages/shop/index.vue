@@ -2,8 +2,14 @@
 <div>
   <Header/>
     <main class="grid">
-      <CategoryCard :key="category.id" v-for="category in categories" :slug="category.slug" :image="category.image.url" :name="category.name" />
-    </main>
+      <div  :key="category.name" v-for="category in categories" class="categoryCard">
+      <img  :src="category.image" alt="">
+      <h3>{{category.name}}</h3>
+      <nuxt-link :to="`/shop/${category.slug}`">
+        <Btn class="w" :text="'Shop'"/>
+      </nuxt-link>
+  </div>
+  </main>
   <Nav />
   <Footer/>
 </div>
@@ -24,19 +30,36 @@ export default {
   },
     data(){
         return{
-            categories:[],
+            categories:[
+              {
+                name: 'Arctic Blue',
+                slug: 'arcticblue',
+                image: require('~/assets/arctic.png')
+              },
+              {
+                name: 'Spring Bobber Pole',
+                slug: 'springbobberpole',
+                image: require('~/assets/products/springBobberPole.jpg')
+              },
+              {
+                name: 'Reels Hooks Ect.',
+                slug: 'reelshooksect',
+                image: require('~/assets/products/dereel.jpg')
+              },
+              {
+                name: 'Bobbers',
+                slug: 'bobbers',
+                image: require('~/assets/products/clipOn.jpg')
+              },
+              {
+                name: 'Delux Bobber Pole',
+                slug: 'deluxbobberpole',
+                image: require('~/assets/products/springBobberPole.jpg')
+              },
+            ],
             loading: true
         }
-    },
-    apollo: {
-    categories: {
-      prefetch: true,
-      query: categoriesQuery
     }
-  },
-  mounted(){
-      this.categories.sort((a, b) => (a.catOrder > b.catOrder) ? -1 : 1)
-  }
 }
 </script>
 
