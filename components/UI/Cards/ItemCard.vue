@@ -191,9 +191,11 @@ a{
 }
 .container {
   color: #70865e;
+  margin: 0 auto;
   margin-bottom: 120px;
   padding: 0;
   max-width: 400px;
+  
  
   h3 {
     text-align: center;

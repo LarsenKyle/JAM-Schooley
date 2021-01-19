@@ -4,8 +4,21 @@
     <div class="hero-img">
       <img class="hero" src="../assets/mainBg.png" alt="Image of a snowey cabin">
       <img class="hero-mobile" src="../assets/mainMobile.png" alt="Image of a snowey cabin">
-      <h1 class="hero-heading" >Tagline Text Here</h1>
+      <h1 class="hero-heading" >Quality Tackle for Quality Fishing</h1>
+     </div>
+     <div class="feature">
+      <v-divider class="mt-10 mb-10"></v-divider>
+      <h2>Featured Item</h2>
+
+      <div class="categoryCard">
+      <img  src="~/assets/arctic.png" alt="Arcit Blue Ice Rod">
+      <h3>Arctic Blue Ice Rod</h3>
+      <nuxt-link :to="`/shop/arcticblue`">
+        <Btn class="w" :text="'Shop Now'"/>
+      </nuxt-link>
     </div>
+      </div>
+
   <Nav />
   <Footer />
   </div>
@@ -17,13 +30,18 @@ export default {}
 
 <style scoped lang="scss">
 @import '../assets/vari.scss';
+.feature{
+  text-align: center;
+  color: $primary;
+  width: 95vw;
+  margin: 0 auto;
+}
 .hero-mobile{
   display: none;
 }
 .hero-img{
   position: relative;
   background-size: cover;
-  margin-bottom: -8px;
  
 }
 .divide{
@@ -60,6 +78,40 @@ export default {}
 .layout{
   display: block;
 }
+a{
+  text-decoration: none;
+}
+.categoryCard{
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 2rem;
+  max-width: 300px;
+  margin-bottom: 120px;
+  h3{
+    font-weight: 400;
+    color: $primary;
+    font-size: clamp(1rem, 2vw, 4rem);
+  }
+  img{
+    width: 30vw;
+    max-width: 300px;
+
+  }
+  .w{
+    width: 30vw;
+    max-width: 300px;
+  }
+}
+@media (max-width: 1240px) { 
+  .categoryCard{
+    img{
+      width:80vw;
+    }
+    .w{
+      width:40vw;
+    }
+  }
+ }
 @media only screen and (max-width: 1000px){
   .hero{
     display: none;
@@ -67,8 +119,12 @@ export default {}
   .hero-mobile{
     display: initial;
     width: 100vw;
-    margin-bottom: -8px;
     
+  }
+  .hero-heading{
+    top: 20%;
+    right: 0%;
+    text-align: center;
   }
 }
 </style>
