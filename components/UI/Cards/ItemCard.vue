@@ -66,11 +66,9 @@ export default {
     },
     getPrice() {
       this.items.forEach(item => {
-        item.forEach(weird => {
-          if (weird.title === this.selected) {
-            this.price = weird.price;
-          }
-        });
+        if(this.selected === item.title){
+          this.price = item.price
+        }
       });
     },
     checkCart(cartItems, title) {

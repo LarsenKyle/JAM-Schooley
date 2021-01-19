@@ -5,7 +5,7 @@
       <ItemCard
         :key="item.id"
         v-for="item in sortedItems"
-        :items="allItems"
+        :items="items"
         :item="item"
       />
     </main>
@@ -18,6 +18,9 @@ export default {
   data() {
     return {
       items: [
+        //
+        //Arctic Blues
+        //
         {
           id: 1,
           title: 'Arctic Blue Ice Rod 18"',
@@ -36,7 +39,7 @@ export default {
           ]
         },
         {
-          id: 1,
+          id: 2,
           title: 'Arctic Blue Ice Rod 24"',
           description: 'Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths',
           price: 13.99,
@@ -53,7 +56,7 @@ export default {
           ]
         },
         {
-          id: 1,
+          id: 3,
           title: 'Arctic Blue Ice Rod 30"',
           description: 'Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths',
           price: 15.50,
@@ -70,7 +73,7 @@ export default {
           ]
         },
         {
-          id: 1,
+          id: 4,
           title: 'Arctic Blue Ice Rod 36"',
           description: 'Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths',
           price: 16.99,
@@ -87,7 +90,7 @@ export default {
           ]
         },
         {
-          id: 1,
+          id: 5,
           title: 'Arctic Blue Ice Rod 42"',
           description: 'Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths',
           price: 17.99,
@@ -103,6 +106,336 @@ export default {
             }
           ]
         },
+        //
+        //Spring Bobber Pole
+        //
+        {
+          id: 6,
+          title: 'Spring Bobber Pole 21"',
+          description: 'Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths',
+          price: 12.99,
+          image:  {
+              url: require('~/assets/products/springBobberPole.jpg'),   
+            },
+          categories: [
+            {
+              id: 2,
+              name: 'Spring Bobber Pole',
+              catOrder: 2,
+              slug: 'springbobberpole',
+            }
+          ]
+        },
+        {
+          id: 7,
+          title: 'Spring Bobber Pole 26"',
+          description: 'Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths',
+          price: 12.99,
+          image:  {
+              url: require('~/assets/products/springBobberPole.jpg'),   
+            },
+          categories: [
+            {
+              id: 2,
+              name: 'Spring Bobber Pole',
+              catOrder: 2,
+              slug: 'springbobberpole',
+            }
+          ]
+        },
+        {
+          id: 8,
+          title: 'Spring Bobber Pole 40"',
+          description: 'Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths',
+          price: 13.99,
+          image:  {
+              url: require('~/assets/products/springBobberPole.jpg'),   
+            },
+          categories: [
+            {
+              id: 2,
+              name: 'Spring Bobber Pole',
+              catOrder: 2,
+              slug: 'springbobberpole',
+            }
+          ]
+        },
+        //Delux Bobber Pole
+        {
+          id: 9,
+          title: 'Deluxe Bobber Pole 21"',
+          description: 'Schooley’s New Deluxe Bobber Poles come with a crafted wood handle. Fish at any depth with this complete fishing outfit. The fishing outfit includes bobber, line and lure that can detect any bite.',
+          price: 14.49,
+          image:  {
+              url: require('~/assets/products/springBobberPole.jpg'),   
+            },
+          categories: [
+            {
+              id: 3,
+              name: 'Deluxe Bobber Pole',
+              catOrder: 3,
+              slug: 'deluxebobberpole',
+            }
+          ]
+        },
+        {
+          id: 10,
+          title: 'Deluxe Bobber Pole 26"',
+          description: 'Schooley’s New Deluxe Bobber Poles come with a crafted wood handle. Fish at any depth with this complete fishing outfit. The fishing outfit includes bobber, line and lure that can detect any bite.',
+          price: 14.49,
+          image:  {
+              url: require('~/assets/products/springBobberPole.jpg'),   
+            },
+          categories: [
+            {
+              id: 3,
+              name: 'Deluxe Bobber Pole',
+              catOrder: 3,
+              slug: 'deluxebobberpole',
+            }
+          ]
+        },
+        {
+          id: 11,
+          title: 'Deluxe Bobber Pole 40"',
+          description: 'Schooley’s New Deluxe Bobber Poles come with a crafted wood handle. Fish at any depth with this complete fishing outfit. The fishing outfit includes bobber, line and lure that can detect any bite.',
+          price: 15.49,
+          image:  {
+              url: require('~/assets/products/springBobberPole.jpg'),   
+            },
+          categories: [
+            {
+              id: 3,
+              name: 'Deluxe Bobber Pole',
+              catOrder: 3,
+              slug: 'deluxebobberpole',
+            }
+          ]
+        },
+        //Reels Hooks
+        {
+          id: 12,
+          title: 'De-Ma-Reel',
+          description: 'Schooley’s New Deluxe Bobber Poles come with a crafted wood handle. Fish at any depth with this complete fishing outfit. The fishing outfit includes bobber, line and lure that can detect any bite.',
+          price: 5.49,
+          image:  {
+              url: require('~/assets/products/springBobberPole.jpg'),   
+            },
+          categories: [
+            {
+              id: 4,
+              name: 'Reels Hooks Ect',
+              catOrder: 4,
+              slug: 'reelshooksect',
+            }
+          ]
+        },
+        {
+          id: 13,
+          title: 'Schooley Balanced Hook',
+          description:  "Schooley's Balanced Hooks & Divers are equipped with a size 10 bronze hook and painted & hand dotted. These provide plenty of action & are real fish getters!",
+          price: 0.99,
+          image:  {
+              url: require('~/assets/noimg.png'),   
+            },
+          categories: [
+            {
+              id: 4,
+              name: 'Reels Hooks Ect',
+              catOrder: 4,
+              slug: 'reelshooksect',
+            }
+          ]
+        },
+        {
+          id: 14,
+          title: 'Schooley Diver #1',
+          description:  "Schooley's Balanced Hooks & Divers are equipped with a size 10 bronze hook and painted & hand dotted. These provide plenty of action & are real fish getters!",
+          price: 0.99,
+          image:  {
+              url: require('~/assets/noimg.png'),   
+            },
+          categories: [
+            {
+              id: 4,
+              name: 'Reels Hooks Ect',
+              catOrder: 4,
+              slug: 'reelshooksect',
+            }
+          ]
+        },
+        {
+          id: 15,
+          title: 'Schooley Diver #2',
+          description:  "Schooley's Balanced Hooks & Divers are equipped with a size 10 bronze hook and painted & hand dotted. These provide plenty of action & are real fish getters!",
+          price: 0.99,
+          image:  {
+              url: require('~/assets/noimg.png'),   
+            },
+          categories: [
+            {
+              id: 4,
+              name: 'Reels Hooks Ect',
+              catOrder: 4,
+              slug: 'reelshooksect',
+            }
+          ]
+        },
+        //Bobbers
+        {
+          id: 16,
+          title: 'Clip On Bobber',
+          description:  "Schooley’s Clip on Sring Bobber is steel and sensitive to every bite. This bobber never touches water, and never freezes in water. It’s ideal for use from a boat or on the ice.",
+          price: 2.99,
+          image:  {
+              url: require('~/assets/products/clipOn.jpg'),   
+            },
+          categories: [
+            {
+              id: 5,
+              name: 'Bobbers',
+              catOrder: 5,
+              slug: 'bobbers',
+            }
+          ]
+        },
+        {
+          id: 17,
+          title: 'Original Spring Bobbers',
+          description:  "Schooley’s Original Sring Bobber is steel and sensitive to every bite. This bobber never touches water, and never freezes in water. It’s ideal for use from a boat or on the ice.",
+          price: 1.99,
+          image:  {
+              url: require('~/assets/products/springBobber.jpg'),   
+            },
+          categories: [
+            {
+              id: 5,
+              name: 'Bobbers',
+              catOrder: 5,
+              slug: 'bobbers',
+            }
+          ]
+        },
+        {
+          id: 18,
+          title: 'Over the End Bobber',
+          description:  "Schooley’s Over the End Bobber is the same as the original but, it slides back and forth over the end of the pole",
+          price: 2.99,
+          image:  {
+              url: require('~/assets/products/springBobber.jpg'),   
+            },
+          categories: [
+            {
+              id: 5,
+              name: 'Bobbers',
+              catOrder: 5,
+              slug: 'bobbers',
+            }
+          ]
+        },
+        {
+          id: 19,
+          title: 'Cork Screw Bobber',
+          description:  "Schooley’s Corkscrew Bobber is a more sensitive bobber that can detect any bite. It slides on the pole for different action.",
+          price: 2.99,
+          image:  {
+              url: require('~/assets/products/springBobber.jpg'),   
+            },
+          categories: [
+            {
+              id: 5,
+              name: 'Bobbers',
+              catOrder: 5,
+              slug: 'bobbers',
+            }
+          ]
+        },
+        {
+          id: 20,
+          title: "Sniders Slip On Bobber",
+          description:  "Snider's Tackle #1 Slip On Spring Bobber. Twin Wire with lite wire tip. Plastic Clip or slip on collar. Now sold by Schooley's",
+          price: 2.99,
+          image:  {
+              url: require('~/assets/products/Sniders.jpg'),   
+            },
+          categories: [
+            {
+              id: 5,
+              name: 'Bobbers',
+              catOrder: 5,
+              slug: 'bobbers',
+            }
+          ]
+        },
+        {
+          id: 21,
+          title: "Sniders Replacment Bobber",
+          description:  "Snider's Tackle #1 Slip On Spring Bobber. Twin Wire with lite wire tip. Plastic Clip or slip on collar. Now sold by Schooley's",
+          price: 2.99,
+          image:  {
+              url: require('~/assets/products/Sniders.jpg'),   
+            },
+          categories: [
+            {
+              id: 5,
+              name: 'Bobbers',
+              catOrder: 5,
+              slug: 'bobbers',
+            }
+          ]
+        },
+        {
+          id: 22,
+          title: "The Bullet Bobber",
+          description:  "Press rubber stop into the end eyelet of your pole. Great bobber style for any rod. Great action!",
+          price: 2.99,
+          image:  {
+              url: require('~/assets/products/bulletBobber.jpg'),   
+            },
+          categories: [
+            {
+              id: 5,
+              name: 'Bobbers',
+              catOrder: 5,
+              slug: 'bobbers',
+            }
+          ]
+        },
+        {
+          id: 23,
+          title: "Depth Marker Pin",
+          description:  "Schooley’s Depth Marker Reel Pins are a sturdy plastic pin. They easily insert into your De-Ma-Reel to stop payout of line at the same depth each time. These are available in red, yellow and green.",
+          price: 0.29,
+          image:  {
+              url: require('~/assets/products/depthMarker.jpg'),   
+            },
+          categories: [
+            {
+              id: 4,
+              name: 'Reels Hooks Ect',
+              catOrder: 4,
+              slug: 'reelshooksect',
+            }
+          ]
+        },
+        {
+          id: 25,
+          title: "Stryeen Handle",
+          description:  "Replacement Handle for your Spring Bobber Pole",
+          price: 1.79,
+          image:  {
+              url: require('~/assets/noimg.png'),   
+            },
+          categories: [
+            {
+              id: 4,
+              name: 'Reels Hooks Ect',
+              catOrder: 4,
+              slug: 'reelshooksect',
+            }
+          ]
+        },
+        
 ],
       allItems: [
         
@@ -130,7 +463,7 @@ export default {
             newItem.image = item.image.url;
             newItem.size = size;
             newItem.price = price;
-          } else {
+          } else { 
             item.image = item.image.url;
             this.sortedItems.push(item);
           }
@@ -163,7 +496,6 @@ export default {
         }
       });
       this.sortedItems.push(newItem);
-      console.log(newItem)
   }
 };
 </script>
