@@ -124,7 +124,8 @@ export default {
           const checkCart = this.checkCart(cartItems, this.selected);
           if (checkCart === false) {
             //Build the new item for the cart if the item is new
-            cartItem.title = this.selected;
+            cartItem.title = `(${this.itemColor})${this.selected}`;
+            
             cartItem.qty = parseInt(this.qty);
             cartItem.price = parseFloat(this.price.toFixed(2));
           } else {
