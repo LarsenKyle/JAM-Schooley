@@ -5,6 +5,7 @@
       <img @click="check" :src="item.image" alt="" />
       <p>{{ item.description }}</p>
       <p class="price" v-if="!item.size">Price: ${{ item.price }}</p>
+      <Color @clicked="colorHandler" v-if="item.color"/>
       <div v-if="item.size" class="select-form">
         <v-select
           @change="getPrice"
@@ -23,7 +24,7 @@
       </div>
       <Btn
         @click="
-          addTooCart(item.title, item.price);
+          addTooCart(item.title, item.price, item.shipping);
           snackbar = true;
         "
         :text="'Add to Cart'"
@@ -55,6 +56,7 @@ export default {
     price: "Select Size",
     qty: 1,
     color: "green",
+    itemColor: 'any',
     text: null,
     checkout:null,
     snackbar: false,
@@ -62,7 +64,10 @@ export default {
   }),
   methods: {
     check(){
-      
+      console.log(this.item)
+    },
+    colorHandler(val){
+      this.itemColor = val
     },
     getPrice() {
       this.items.forEach(item => {
@@ -95,7 +100,10 @@ export default {
       }
     },
 
-    addTooCart(title, price) {
+    addTooCart(title, price , shipping) {
+      if(this.item.color){
+        title = `(${this.itemColor}) ${title}`
+      }
       if (this.item.size && this.selected === "") {
         this.snackbar = true;
         this.text = "Please Select a Size";
@@ -109,6 +117,7 @@ export default {
         }
         //Initialize new item to add to cart
         let cartItem = {};
+        cartItem.shipping = shipping
         //Check to see if the item has multiple sizes
         if (this.selected !== "") {
           //Check to see if the item is already in the cart
@@ -144,7 +153,7 @@ export default {
         this.$store.commit("addItem", cartItems);
         
         localStorage.setItem("cart", JSON.stringify(cartItems));
-        this.text = "Items Added to Cart";
+        this.text = "Items Added";
         this.timeout = 20000
         this.checkout = true
         this.color = "green";
@@ -191,12 +200,11 @@ a{
 }
 .container {
   color: #70865e;
+  width: 95vw;
   margin: 0 auto;
   margin-bottom: 120px;
   padding: 0;
   max-width: 400px;
-  
- 
   h3 {
     text-align: center;
     font-weight: 400;
@@ -211,6 +219,7 @@ a{
   img {
     width: 100%;
   }
+  
   p {
     margin: 1rem;
   }

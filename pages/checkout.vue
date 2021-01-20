@@ -6,7 +6,7 @@
         <v-card-title class="headline">
           My Cart
         </v-card-title>
-        <v-card-text>Shipping and handling: UPS flat rate $8.00</v-card-text>
+        <v-card-text>Shipping and handling: UPS flat rate ${{shipping}}.00</v-card-text>
         <v-card-text>
           <v-card-text v-if="!items">
             <h1 class="empty">Looks like your cart is empty!</h1>
@@ -59,16 +59,24 @@ export default {
       loaded: false,
       paidFor: false,
       amount: null,
-      items: null
+      items: null,
+      shipping: 4
     };
   },
   mounted() {
     if (process.browser && this.$store.state.cartItems ) {
       let amount = {};
       let breakdown = {};
-      let shippingVal = 8;
+      let shippingVal = 4;
       let arr = [];
       let cartItems = this.$store.state.cartItems
+      let shippingCheck = cartItems.map(item => {
+          return item.shipping
+      })
+      if(shippingCheck.includes(undefined)){
+        shippingVal = 8
+      }
+      this.shipping = shippingVal
       //Get items from cart and turn them into an array for the paypal function items:
       let purchaseItems = cartItems.map(item => {
         return {
