@@ -132,7 +132,7 @@ export default {
       ///////////////////////
       const script = document.createElement("script");
       script.src =
-        "https://www.paypal.com/sdk/js?client-id=ARNRNvgJTH0oaRUrQUC-p-MgCXzIOl5T6um6YqdW7U9mkwzV-ZkfCtp9c0QH6dRWArJY85Yh3rLCT5Vu";
+        "https://www.paypal.com/sdk/js?client-id=AdBC5A2lHp3ymoHr5cnwdxf-dBdB7YUW23hjBwi0ZIdjx-fWgnhEMqQ2xW5DHmmAMP77nSL1huUWS1hP";
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script);
     }
@@ -140,7 +140,6 @@ export default {
   methods: {
     remove(name){
     let cartItems = JSON.parse(localStorage.getItem("cart"));
-    
     cartItems = cartItems.filter(item => {
      return item.title != name
     })

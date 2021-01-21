@@ -42,7 +42,7 @@ export default {
                 image: require('~/assets/products/springBobberPole.jpg')
               },
               {
-                name: 'Reels Hooks Ect.',
+                name: 'Reels Hooks Etc.',
                 slug: 'reelshooksect',
                 image: require('~/assets/products/dereel.jpg')
               },
@@ -52,7 +52,7 @@ export default {
                 image: require('~/assets/products/clipOn.jpg')
               },
               {
-                name: 'Delux Bobber Pole',
+                name: 'Deluxe Bobber Pole',
                 slug: 'deluxebobberpole',
                 image: require('~/assets/products/springBobberPole.jpg')
               },
