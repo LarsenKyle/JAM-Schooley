@@ -132,7 +132,7 @@ export default {
       ///////////////////////
       const script = document.createElement("script");
       script.src =
-        "https://www.paypal.com/sdk/js?client-id=AdBC5A2lHp3ymoHr5cnwdxf-dBdB7YUW23hjBwi0ZIdjx-fWgnhEMqQ2xW5DHmmAMP77nSL1huUWS1hP";
+        `https://www.paypal.com/sdk/js?client-id=${process.env.PAYPAL_ID}`;
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script);
     }

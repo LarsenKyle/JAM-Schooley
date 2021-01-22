@@ -28,7 +28,8 @@ export default {
   css: [
   ],
   env:{
-    strapiBaseUri: process.env.API_URL
+    strapiBaseUri: process.env.API_URL,
+    paypalId: process.env.PAYPAL_ID
   },
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
