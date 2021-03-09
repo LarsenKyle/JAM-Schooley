@@ -22,7 +22,7 @@ export default {
         //Arctic Blues
         //
         {
-          id: 1,
+          id: '6118',
           title: 'Arctic Blue Ice Rod 18"',
           description:
             "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
@@ -40,7 +40,7 @@ export default {
           ]
         },
         {
-          id: 2,
+          id: '6224',
           title: 'Arctic Blue Ice Rod 24"',
           description:
             "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
@@ -58,11 +58,11 @@ export default {
           ]
         },
         {
-          id: 3,
+          id: '6330',
           title: 'Arctic Blue Ice Rod 30"',
           description:
             "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
-          price: 15.5,
+          price: 15.99,
           image: {
             url: require("~/assets/arctic.png")
           },
@@ -76,7 +76,7 @@ export default {
           ]
         },
         {
-          id: 4,
+          id: '6336',
           title: 'Arctic Blue Ice Rod 36"',
           description:
             "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
@@ -94,7 +94,7 @@ export default {
           ]
         },
         {
-          id: 5,
+          id: '6442',
           title: 'Arctic Blue Ice Rod 42"',
           description:
             "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
@@ -115,7 +115,7 @@ export default {
         //Spring Bobber Pole
         //
         {
-          id: 6,
+          id: '1321',
           title: 'Spring Bobber Pole 21"',
           color: true,
           description:
@@ -134,7 +134,7 @@ export default {
           ]
         },
         {
-          id: 7,
+          id: '1126',
           title: 'Spring Bobber Pole 26"',
           color: true,
           description:
@@ -153,7 +153,7 @@ export default {
           ]
         },
         {
-          id: 8,
+          id: '1540',
           title: 'Spring Bobber Pole 40"',
           color: true,
           description:
@@ -173,7 +173,7 @@ export default {
         },
         //Delux Bobber Pole
         {
-          id: 9,
+          id: '3321wg',
           title: 'Deluxe Bobber Pole 21"',
           color: true,
           description:
@@ -192,7 +192,7 @@ export default {
           ]
         },
         {
-          id: 10,
+          id: '3126wg',
           title: 'Deluxe Bobber Pole 26"',
           color: true,
           description:
@@ -211,7 +211,7 @@ export default {
           ]
         },
         {
-          id: 11,
+          id: '3540wg',
           title: 'Deluxe Bobber Pole 40"',
           color: true,
           description:
@@ -231,12 +231,12 @@ export default {
         },
         //Reels Hooks
         {
-          id: 12,
+          id: '1000',
           title: "De-Ma-Reel",
           color: true,
           description:
             "The De-Ma-Reel is molded nylon and very durable.This straight-line reel can be used on any ice fishing pole. Used by the Olympic Ice Fishing Team!",
-          price: 5.29,
+          price: 5.99,
           image: {
             url: require("~/assets/products/dereel.jpg")
           },
@@ -250,7 +250,7 @@ export default {
           ]
         },
         {
-          id: 13,
+          id: '4',
           title: "Schooley Balanced Hook",
           shipping: true,
           description:
@@ -269,7 +269,7 @@ export default {
           ]
         },
         {
-          id: 14,
+          id: '11',
           title: "Schooley Diver #1",
           shipping: true,
           description:
@@ -288,7 +288,7 @@ export default {
           ]
         },
         {
-          id: 15,
+          id: '22',
           title: "Schooley Diver #2",
           shipping: true,
           description:
@@ -308,7 +308,7 @@ export default {
         },
         //Bobbers
         {
-          id: 16,
+          id: '19',
           title: "Clip On Bobber",
           shipping: true,
           description:
@@ -327,7 +327,7 @@ export default {
           ]
         },
         {
-          id: 17,
+          id: '18b',
           title: "Original Spring Bobbers",
           shipping: true,
           description:
@@ -346,7 +346,7 @@ export default {
           ]
         },
         {
-          id: 18,
+          id: '24',
           title: "Over the End Bobber",
           shipping: true,
           description:
@@ -365,7 +365,7 @@ export default {
           ]
         },
         {
-          id: 19,
+          id: '23',
           title: "Cork Screw Bobber",
           shipping: true,
           description:
@@ -384,7 +384,7 @@ export default {
           ]
         },
         {
-          id: 20,
+          id: '28',
           title: "Sniders Slip On Bobber",
           shipping: true,
           description:
@@ -403,7 +403,7 @@ export default {
           ]
         },
         {
-          id: 21,
+          id: '29',
           title: "Sniders Replacment Bobber",
           shipping: true,
           description:
@@ -422,7 +422,7 @@ export default {
           ]
         },
         {
-          id: 22,
+          id: '22',
           title: "The Bullet Bobber",
           shipping: true,
           description:
@@ -441,7 +441,7 @@ export default {
           ]
         },
         {
-          id: 23,
+          id: '15',
           title: "Depth Marker Pin",
           shipping: true,
           description:

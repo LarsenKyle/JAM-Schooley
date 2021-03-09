@@ -60,7 +60,7 @@ export default {
       paidFor: false,
       amount: null,
       items: null,
-      shipping: 4
+      shipping: 5
     };
   },
   mounted() {
@@ -74,7 +74,7 @@ export default {
           return item.shipping
       })
       if(shippingCheck.includes(undefined)){
-        shippingVal = 8
+        shippingVal = 10
       }
       this.shipping = shippingVal
       //Get items from cart and turn them into an array for the paypal function items:
@@ -82,6 +82,7 @@ export default {
         return {
           name: item.title,
           quantity: item.qty,
+          sku: item.id,
           unit_amount: {
             currency_code: "USD",
             value: parseFloat(item.price.toFixed(2))

@@ -34,6 +34,7 @@ export default {
 footer{
   position: fixed;
   bottom: 0;
+  z-index: 3;
 }
 .mobile {
     position: fixed;

@@ -24,7 +24,7 @@
       </div>
       <Btn
         @click="
-          addTooCart(item.title, item.price, item.shipping);
+          addTooCart(item.title, item.price, item.shipping, item.id);
           snackbar = true;
         "
         :text="'Add to Cart'"
@@ -100,7 +100,7 @@ export default {
       }
     },
 
-    addTooCart(title, price , shipping) {
+    addTooCart(title, price , shipping, id) {
       if(this.item.color){
         title = `(${this.itemColor}) ${title}`
       }
@@ -118,6 +118,7 @@ export default {
         //Initialize new item to add to cart
         let cartItem = {};
         cartItem.shipping = shipping
+        cartItem.id = id
         //Check to see if the item has multiple sizes
         if (this.selected !== "") {
           //Check to see if the item is already in the cart
@@ -139,6 +140,7 @@ export default {
           if (checkCart === false) {
             //Build the new item for the cart if the item is new
             cartItem.title = title;
+           
             cartItem.qty = parseInt(this.qty);
             cartItem.price = price;
           } else {

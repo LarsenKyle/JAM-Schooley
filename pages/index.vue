@@ -42,7 +42,18 @@ export default {}
 .hero-img{
   position: relative;
   background-size: cover;
- 
+  
+  
+}
+.hero-img::before{
+    content:'';
+    position:absolute;
+    background: linear-gradient(0deg, #00000038 30%, #ffffff44 100%);
+    width:100%;
+    height:99%;
+    z-index:1;
+    left: 0;
+    top: 0;
 }
 .divide{
   margin: 4rem 2rem;
@@ -56,6 +67,7 @@ export default {}
   right: 10%;
   color:#fff;
   padding: 1rem;
+  z-index: 3;
 }
 .content{
     width: 95vw;
