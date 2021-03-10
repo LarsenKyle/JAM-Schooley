@@ -234,6 +234,7 @@ export default {
           id: '1000',
           title: "De-Ma-Reel",
           color: true,
+          shipping: true,
           description:
             "The De-Ma-Reel is molded nylon and very durable.This straight-line reel can be used on any ice fishing pole. Used by the Olympic Ice Fishing Team!",
           price: 5.99,

@@ -1,7 +1,8 @@
 <template>
   <v-footer class="foot">
      <p>13700 14 Mile Rd NE, Greenville, MI 48838</p> 
-     <p>(616) 754-8171</p>
+     <p>(616) 754-3266</p>
+     <p>schooleytackle@gmail.com</p>
   </v-footer>
 </template>
 

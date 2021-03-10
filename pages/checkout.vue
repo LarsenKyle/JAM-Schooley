@@ -6,10 +6,11 @@
         <v-card-title class="headline">
           My Cart
         </v-card-title>
-        <v-card-text>Shipping and handling: UPS flat rate ${{shipping}}.00</v-card-text>
+        <v-card-text>Shipping and handling: USPS flat rate ${{shipping}}.00</v-card-text>
         <v-card-text>
           <v-card-text v-if="!items">
             <h1 class="empty">Looks like your cart is empty!</h1>
+
           </v-card-text>
           <v-simple-table v-if="items" >
             <template v-slot:default>
@@ -67,11 +68,12 @@ export default {
     if (process.browser && this.$store.state.cartItems ) {
       let amount = {};
       let breakdown = {};
-      let shippingVal = 4;
+      let shippingVal = 5;
       let arr = [];
       let cartItems = this.$store.state.cartItems
       let shippingCheck = cartItems.map(item => {
           return item.shipping
+         
       })
       if(shippingCheck.includes(undefined)){
         shippingVal = 10

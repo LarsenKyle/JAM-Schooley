@@ -7,9 +7,10 @@
             <v-card class="elevation-0">
               <v-toolbar color="white" dark flat>
                 <v-toolbar-title class="t-title">Contact Us</v-toolbar-title>
+                
                 <v-spacer></v-spacer>
               </v-toolbar>
-              <v-form action="https://formspree.io/krlars87@gmail.com" method="POST">
+              <v-form action="https://formspree.io/schooleytackle@gmail.com" method="POST">
                 <v-card-text>
                   <v-text-field
                     label="Email"
@@ -42,6 +43,7 @@
               </v-form>
             </v-card>
           </v-col>
+          
         </v-row>
       </v-container>
       <Nav/>
