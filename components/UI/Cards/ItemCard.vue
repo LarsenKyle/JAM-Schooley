@@ -25,7 +25,7 @@
       <Btn
         @click="
           addTooCart(item.title, item.price, item.shipping, item.id);
-          snackbar = true;
+          snackbarHandler();
         "
         :text="'Add to Cart'"
       />
@@ -80,35 +80,50 @@ export default {
       const upItems = cartItems.map(item => {
         if (item.title === title) {
           return {
+            shipping: item.shipping,
+            id: item.id,
             title: item.title,
             qty: parseInt(item.qty) + parseInt(this.qty),
             price: item.price
           };
         } else {
           return {
+            shipping: item.shipping,
+            id: item.id,
             title: item.title,
             qty: item.qty,
             price: item.price
+            
           };
         }
       });
       //end map
+      console.log(JSON.stringify(upItems))
+      console.log(JSON.stringify(cartItems))
       if (JSON.stringify(cartItems) === JSON.stringify(upItems)) {
         return false;
       } else {
         return upItems;
       }
     },
-
+  snackbarHandler(){
+     if (this.item.size && this.selected === "") {
+        this.text = "Please Select a Size";
+        this.color = "red";
+     }else{
+       this.snackbar = true
+        this.text = "Items Added";
+        this.timeout = 5000
+        this.checkout = true
+        this.color = "green";
+     }
+  },
     addTooCart(title, price , shipping, id) {
+
       if(this.item.color){
         title = `(${this.itemColor}) ${title}`
       }
-      if (this.item.size && this.selected === "") {
-        this.snackbar = true;
-        this.text = "Please Select a Size";
-        this.color = "red";
-      } else {
+      
         //Check local storage to see if items are in cart
         let cartItems = JSON.parse(localStorage.getItem("cart"));
         //If local storage is empty intialize an empty cart
@@ -139,28 +154,27 @@ export default {
           const checkCart = this.checkCart(cartItems, title);
           if (checkCart === false) {
             //Build the new item for the cart if the item is new
+            console.log(false)
             cartItem.title = title;
-           
             cartItem.qty = parseInt(this.qty);
             cartItem.price = price;
           } else {
             //Replace the cart with the updated qty if the item is in the cart
+            console.log(true)
             cartItems = checkCart;
           }
         }
         //If the item was not already in the cart, add it
         if (cartItem.title) {
+      
           cartItems.push(cartItem);
         }
         //Replace the cart with the updated version
         this.$store.commit("addItem", cartItems);
         
         localStorage.setItem("cart", JSON.stringify(cartItems));
-        this.text = "Items Added";
-        this.timeout = 20000
-        this.checkout = true
-        this.color = "green";
-      }
+       
+      
     }
   }
 };

@@ -34,7 +34,7 @@ export default {
 footer{
   position: fixed;
   bottom: 0;
-  z-index: 3;
+  z-index: 1000;
 }
 .mobile {
     position: fixed;
@@ -44,7 +44,7 @@ footer{
     justify-content: space-around;
     background-color: #f2f2f2;
     font-size: 1.3rem;
-    z-index: 1;
+    z-index: 1000;
     .navi{
       display: flex;
       flex-direction: column;

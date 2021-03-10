@@ -4,7 +4,9 @@ export const state = () => ({
 export const actions = {
   getItems({commit}){
     let cartItems = JSON.parse(localStorage.getItem("cart"));
+   if(cartItems.length > 0){
     commit('addItem',cartItems)
+   }
   }
 }
 export const mutations = {

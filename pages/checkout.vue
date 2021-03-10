@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <Nav />
     <div class="checkout" v-if="!paidFor">
       <v-card>
         <v-card-title class="headline">
@@ -49,6 +50,7 @@
     <div class="paypal-styles">
       <div ref="paypal"></div>
     </div>
+    <div class="height"></div>
   </div>
 </template>
 
@@ -204,5 +206,8 @@ margin-top: 1rem;
   width: 95vw;
   margin: 0 auto;
   margin-top: 8rem;
+}
+.height{
+  height:200px;
 }
 </style>
