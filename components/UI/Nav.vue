@@ -2,7 +2,7 @@
  <footer>
     <nav class="mobile">
      <div class="navi home">
-        <nuxt-link to="/">
+        <nuxt-link to="/contact">
          <img src="../../assets/contact-icon.svg" alt="House SVG navigates to home">
          </nuxt-link>
          <nuxt-link to="/contact">Contact</nuxt-link>
