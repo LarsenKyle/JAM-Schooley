@@ -22,7 +22,7 @@
           <label for="name" class="form__label">Qty</label>
         </div>
       </div>
-      <Btn
+      <Btn v-if="item.title !== 'Arctic Blue Ice Rod'"
         @click="
           addTooCart(item.title, item.price, item.shipping, item.id);
           snackbarHandler();

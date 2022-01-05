@@ -25,7 +25,7 @@ export default {
           id: '6118',
           title: 'Arctic Blue Ice Rod 18"',
           description:
-            "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
+            "Out Of Stock",
           price: 12.99,
           image: {
             url: require("~/assets/arctic.png")
@@ -43,7 +43,7 @@ export default {
           id: '6224',
           title: 'Arctic Blue Ice Rod 24"',
           description:
-            "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
+            "Out Of Stock",
           price: 13.99,
           image: {
             url: require("~/assets/arctic.png")
@@ -61,7 +61,7 @@ export default {
           id: '6330',
           title: 'Arctic Blue Ice Rod 30"',
           description:
-            "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
+            "Out Of Stock",
           price: 15.99,
           image: {
             url: require("~/assets/arctic.png")
@@ -79,7 +79,7 @@ export default {
           id: '6336',
           title: 'Arctic Blue Ice Rod 36"',
           description:
-            "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
+            "Out Of Stock",
           price: 16.99,
           image: {
             url: require("~/assets/arctic.png")
@@ -97,7 +97,7 @@ export default {
           id: '6442',
           title: 'Arctic Blue Ice Rod 42"',
           description:
-            "Comes with a cork handle and reel rings. The blank is light blue with a fluorescent red tip for visibility, and has a hook keeper. The rods are ultra light for sensitivity and fast action. Comes in 5 different lengths",
+            "Out Of Stock",
           price: 17.99,
           image: {
             url: require("~/assets/arctic.png")
