@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleClick"  class="btn">{{text}}</button>
+  <button disabled @click="handleClick"  class="btn">{{text}}</button>
 </template>
 
 <script>
