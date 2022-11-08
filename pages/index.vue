@@ -4,7 +4,7 @@
     <div class="hero-img">
       <img class="hero" src="../assets/mainBg.png" alt="Image of a snowey cabin">
       <img class="hero-mobile" src="../assets/mainMobile.png" alt="Image of a snowey cabin">
-      <h1 class="hero-heading" >Everything is out of Stock, Check Back Next Fall</h1>
+      <h1 class="hero-heading" >Get Ice Fishing Equiptment Now!</h1>
      </div>
      <!-- <div class="feature">
       <v-divider class="mt-10 mb-10"></v-divider>
