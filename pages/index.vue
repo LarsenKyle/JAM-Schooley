@@ -6,7 +6,7 @@
       <img class="hero-mobile" src="../assets/mainMobile.png" alt="Image of a snowey cabin">
       <h1 class="hero-heading" >Get Ice Fishing Equiptment Now!</h1>
      </div>
-     <!-- <div class="feature">
+     <div class="feature">
       <v-divider class="mt-10 mb-10"></v-divider>
       <h2>Featured Item</h2>
 
@@ -17,7 +17,7 @@
         <Btn class="w" :text="'Shop Now'"/>
       </nuxt-link>
     </div>
-      </div> -->
+      </div>
 
   <Nav />
   <Footer />
