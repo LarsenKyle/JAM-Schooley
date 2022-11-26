@@ -51,11 +51,7 @@ export default {
                 slug: 'bobbers',
                 image: require('~/assets/products/clipOn.jpg')
               },
-              {
-                name: 'Deluxe Bobber Pole',
-                slug: 'deluxebobberpole',
-                image: require('~/assets/products/springBobberPole.jpg')
-              },
+             
             ],
             loading: true
         }
