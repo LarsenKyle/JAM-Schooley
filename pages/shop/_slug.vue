@@ -18,14 +18,14 @@ export default {
   data() {
     return {
       items: [
-        //
+       //
         //Arctic Blues
         //
         {
           id: '6118',
           title: 'Arctic Blue Ice Rod 18"',
           description:
-            "Arctic Blue Ice fishing Rod",
+            "Out Of Stock",
           price: 12.99,
           image: {
             url: require("~/assets/arctic.png")
@@ -43,8 +43,62 @@ export default {
           id: '6224',
           title: 'Arctic Blue Ice Rod 24"',
           description:
-            "Arctic Blue Ice fishing Rod",
+            "Out Of Stock",
           price: 13.99,
+          image: {
+            url: require("~/assets/arctic.png")
+          },
+          categories: [
+            {
+              id: 1,
+              name: "Arctic Blue",
+              catOrder: 1,
+              slug: "arcticblue"
+            }
+          ]
+        },
+        {
+          id: '6330',
+          title: 'Arctic Blue Ice Rod 30"',
+          description:
+            "Out Of Stock",
+          price: 15.99,
+          image: {
+            url: require("~/assets/arctic.png")
+          },
+          categories: [
+            {
+              id: 1,
+              name: "Arctic Blue",
+              catOrder: 1,
+              slug: "arcticblue"
+            }
+          ]
+        },
+        {
+          id: '6336',
+          title: 'Arctic Blue Ice Rod 36"',
+          description:
+            "Out Of Stock",
+          price: 16.99,
+          image: {
+            url: require("~/assets/arctic.png")
+          },
+          categories: [
+            {
+              id: 1,
+              name: "Arctic Blue",
+              catOrder: 1,
+              slug: "arcticblue"
+            }
+          ]
+        },
+        {
+          id: '6442',
+          title: 'Arctic Blue Ice Rod 42"',
+          description:
+            "Out Of Stock",
+          price: 17.99,
           image: {
             url: require("~/assets/arctic.png")
           },
