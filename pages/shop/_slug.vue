@@ -93,24 +93,7 @@ export default {
             }
           ]
         },
-        {
-          id: '6442',
-          title: 'Arctic Blue Ice Rod 42"',
-          description:
-            "42 inch Arctic Blue Ice fishing Rod",
-          price: 17.99,
-          image: {
-            url: require("~/assets/arctic.png")
-          },
-          categories: [
-            {
-              id: 1,
-              name: "Arctic Blue",
-              catOrder: 1,
-              slug: "arcticblue"
-            }
-          ]
-        },
+        
        
         //
         //Spring Bobber Pole
