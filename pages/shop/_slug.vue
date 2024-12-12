@@ -330,16 +330,7 @@ export default {
             }
           ]
         },
-        {
-          id: '24',
-          title: "Over the End Bobber",
-          shipping: true,
-          description:
-            "Schooley’s Over the End Bobber is the same as the original but, it slides back and forth over the end of the pole",
-          price: 2.99,
-          image: {
-            url: require("~/assets/products/springBobber.jpg")
-          },
+        
           categories: [
             {
               id: 5,
