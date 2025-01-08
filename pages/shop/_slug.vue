@@ -329,17 +329,7 @@ export default {
               slug: "bobbers"
             }
           ]
-        },
-        
-          categories: [
-            {
-              id: 5,
-              name: "Bobbers",
-              catOrder: 5,
-              slug: "bobbers"
-            }
-          ]
-        },
+        },    
         {
           id: '23',
           title: "Cork Screw Bobber",
