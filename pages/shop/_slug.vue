@@ -26,7 +26,7 @@ export default {
           title: 'Arctic Blue Ice Rod 18"',
           description:
             "18 Inch Arctic Blue ice fishing rod",
-          price: 12.99,
+          price: 13.99,
           image: {
             url: require("~/assets/arctic.png")
           },
@@ -45,7 +45,7 @@ export default {
           title: 'Arctic Blue Ice Rod 24"',
           description:
             "24 inch Arctic Blue Ice fishing Rod",
-          price: 13.99,
+          price: 15.99,
           image: {
             url: require("~/assets/arctic.png")
           },
@@ -63,7 +63,7 @@ export default {
           title: 'Arctic Blue Ice Rod 30"',
           description:
             "30 inch Arctic Blue Ice fishing Rod",
-          price: 15.99,
+          price: 16.99,
           image: {
             url: require("~/assets/arctic.png")
           },
@@ -82,7 +82,7 @@ export default {
           title: 'Arctic Blue Ice Rod 36"',
           description:
             "36 inch Arctic Blue Ice fishing Rod",
-          price: 16.99,
+          price: 17.99,
           image: {
             url: require("~/assets/arctic.png")
           },
@@ -100,7 +100,7 @@ export default {
           title: 'Arctic Blue Ice Rod 42"',
           description:
             "Arctic Blue Ice fishing Rod",
-          price: 17.99,
+          price: 19.99,
           image: {
             url: require("~/assets/arctic.png")
           },
@@ -123,7 +123,7 @@ export default {
           color: true,
           description:
             "Fish at any depth with this complete fishing outfit. The fishing outfit includes a bobber, line and lure that can detect any bite.",
-          price: 12.99,
+          price: 13.99,
           image: {
             url: require("~/assets/products/springBobberPole.jpg")
           },
@@ -142,7 +142,7 @@ export default {
           color: true,
           description:
             "Fish at any depth with this complete fishing outfit. The fishing outfit includes a bobber, line and lure that can detect any bite.",
-          price: 12.99,
+          price: 13.99,
           image: {
             url: require("~/assets/products/springBobberPole.jpg")
           },
@@ -161,7 +161,7 @@ export default {
           color: true,
           description:
             "Fish at any depth with this complete fishing outfit. The fishing outfit includes a bobber, line and lure that can detect any bite.",
-          price: 13.99,
+          price: 14.99,
           image: {
             url: require("~/assets/products/springBobberPole.jpg")
           },
@@ -240,7 +240,7 @@ export default {
           shipping: true,
           description:
             "The De-Ma-Reel is molded nylon and very durable.This straight-line reel can be used on any ice fishing pole. Used by the Olympic Ice Fishing Team!",
-          price: 5.99,
+          price: 6.49,
           image: {
             url: require("~/assets/products/dereel.jpg")
           },
@@ -317,7 +317,7 @@ export default {
           shipping: true,
           description:
             "Schooley’s Clip on Sring Bobber is steel and sensitive to every bite. This bobber never touches water, and never freezes in water. It’s ideal for use from a boat or on the ice.",
-          price: 2.99,
+          price: 3.29,
           image: {
             url: require("~/assets/products/clipOn.jpg")
           },
@@ -336,7 +336,7 @@ export default {
           shipping: true,
           description:
             "Schooley’s Original Sring Bobber is steel and sensitive to every bite. This bobber never touches water, and never freezes in water. It’s ideal for use from a boat or on the ice.",
-          price: 1.99,
+          price: 2.49,
           image: {
             url: require("~/assets/products/springBobber.jpg")
           },
