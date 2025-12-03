@@ -58,6 +58,7 @@ export default {
             }
           ]
         },
+        /*
         {
           id: '6330',
           title: 'Arctic Blue Ice Rod 30"',
@@ -76,7 +77,7 @@ export default {
             }
           ]
         },
-       
+       */
         {
           id: '6336',
           title: 'Arctic Blue Ice Rod 36"',
