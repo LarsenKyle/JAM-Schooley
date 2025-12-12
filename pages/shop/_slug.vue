@@ -21,6 +21,7 @@ export default {
        //
         //Arctic Blues
         //
+        /*
         {
           id: '6118',
           title: 'Arctic Blue Ice Rod 18"',
@@ -39,7 +40,7 @@ export default {
             }
           ]
         },
-      /*
+      
        {
           id: '6224',
           title: 'Arctic Blue Ice Rod 24"',
